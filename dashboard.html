@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - Novo Amanhã</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <style>
+    body {
+      background: #f4f1fa;
+      margin: 0;
+    }
+    .topbar {
+      background: #6c3fd4;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      height: 56px;
+      padding: 0 1.2rem;
+      gap: 1.2rem;
+      box-shadow: 0 2px 8px #6c3fd41a;
+    }
+    .topbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #fff;
+      text-decoration: none;
+    }
+    /* Hamburguer customizado */
+    .topbar .btn {
+      background: transparent;
+      color: #fff;
+      border: none;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      padding: 0.35rem 0.7rem;
+      border-radius: 6px;
+    }
+    /* Força as barras do hamburguer a ficarem brancas */
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    /* Offcanvas lateral */
+    .offcanvas.offcanvas-start {
+      background: #6c3fd4 !important;
+      width: 230px;
+      color: #fff;
+    }
+    .offcanvas .offcanvas-header {
+      border-bottom: 1px solid #8a5bdc4d;
+      background: #6c3fd4;
+    }
+    .offcanvas .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 0.85rem 2rem 0.85rem 1.5rem;
+      border-radius: 0 50px 50px 0;
+      transition: background .15s, color .15s;
+    }
+    .offcanvas .nav-link.active,
+    .offcanvas .nav-link:hover {
+      background: #fff;
+      color: #6c3fd4 !important;
+    }
+    .offcanvas .logout-link {
+      margin-top: 1.5rem;
+      padding: 0 2rem;
+    }
+    /* Deixa o X de fechar sempre branco */
+    .btn-close {
+      filter: invert(1);
+    }
+    @media (max-width: 575.98px) {
+      .topbar {
+        padding: 0 0.4rem;
+      }
+      .offcanvas.offcanvas-start {
+        width: 100vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar com botão hamburguer -->
+  <header class="topbar">
+    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuSidebar" aria-controls="menuSidebar" aria-label="Abrir menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="brand" href="dashboard.html">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="13" r="6" fill="#FFD600"/>
+        <g stroke="#FFD600" stroke-width="2">
+          <line x1="13" y1="2" x2="13" y2="0"/>
+          <line x1="13" y1="26" x2="13" y2="24"/>
+          <line x1="2" y1="13" x2="0" y2="13"/>
+          <line x1="26" y1="13" x2="24" y2="13"/>
+          <line x1="21.213" y1="4.787" x2="22.627" y2="3.373"/>
+          <line x1="4.787" y1="4.787" x2="3.373" y2="3.373"/>
+          <line x1="21.213" y1="21.213" x2="22.627" y2="22.627"/>
+          <line x1="4.787" y1="21.213" x2="3.373" y2="22.627"/>
+        </g>
+      </svg>
+      Novo Amanhã
+    </a>
+  </header>
+
+  <!-- Offcanvas menu lateral -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="menuSidebar" aria-labelledby="menuSidebarLabel">
+    <div class="offcanvas-header">
+      <span class="brand d-flex align-items-center gap-2" style="color:#fff; font-weight:700;">
+        <svg width="20" height="20" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="6" fill="#FFD600"/>
+          <g stroke="#FFD600" stroke-width="2">
+            <line x1="13" y1="2" x2="13" y2="0"/>
+            <line x1="13" y1="26" x2="13" y2="24"/>
+            <line x1="2" y1="13" x2="0" y2="13"/>
+            <line x1="26" y1="13" x2="24" y2="13"/>
+            <line x1="21.213" y1="4.787" x2="22.627" y2="3.373"/>
+            <line x1="4.787" y1="4.787" x2="3.373" y2="3.373"/>
+            <line x1="21.213" y1="21.213" x2="22.627" y2="22.627"/>
+            <line x1="4.787" y1="21.213" x2="3.373" y2="22.627"/>
+          </g>
+        </svg>
+        Novo Amanhã
+      </span>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column px-0">
+      <nav class="flex-grow-1">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="alunos.html">Alunos</a></li>
+          <li class="nav-item"><a class="nav-link" href="presencas.html">Presenças</a></li>
+          <li class="nav-item"><a class="nav-link" href="documentos.html">Documentos</a></li>
+          <li class="nav-item"><a class="nav-link" href="relatorios.html">Relatórios</a></li>
+          <li class="nav-item"><a class="nav-link" href="programacao.html">Programação Semanal</a></li>
+        </ul>
+      </nav>
+      <div class="logout-link">
+        <a class="nav-link" href="index.html">Sair</a>
+      </div>
+    </div>
+  </div>
+
+  <section class="container my-5">
+    <h2 class="text-center">Dashboard</h2>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><i class="bi bi-person-plus"></i> Cadastro de Alunos</h5>
+            <p class="card-text flex-grow-1">Adicione, edite ou remova alunos da ONG.</p>
+            <a href="alunos.html" class="btn btn-custom mt-auto">Acessar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><i class="bi bi-check-square"></i> Registro de Presenças</h5>
+            <p class="card-text flex-grow-1">Registre e visualize a presença dos alunos.</p>
+            <a href="presencas.html" class="btn btn-custom mt-auto">Acessar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><i class="bi bi-folder"></i> Organização de Documentos</h5>
+            <p class="card-text flex-grow-1">Gerencie documentos importantes da ONG.</p>
+            <a href="documentos.html" class="btn btn-custom mt-auto">Acessar</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title"><i class="bi bi-file-earmark-text"></i> Relatórios</h5>
+            <p class="card-text flex-grow-1">Gere e baixe relatórios de alunos e presenças.</p>
+            <a href="relatorios.html" class="btn btn-custom mt-auto">Acessar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<section id="stats">
+        <h2>Estatísticas</h2>
+        <div id="estatisticas"></div>
+    </section>
+</div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>// Lógica básica de login e dashboard
+const loginForm = document.getElementById('login-form');
+const loginContainer = document.getElementById('login-container');
+const dashboard = document.getElementById('dashboard');
+const loginError = document.getElementById('login-error');
+const logoutBtn = document.getElementById('logout');
+
+// Recuperação de senha
+const forgotPasswordLink = document.getElementById('forgot-password-link');
+const recoverForm = document.getElementById('recover-form');
+const recoverEmail = document.getElementById('recover-email');
+const backToLogin = document.getElementById('back-to-login');
+const recoverMessage = document.getElementById('recover-message');
+
+if (forgotPasswordLink) {
+    forgotPasswordLink.onclick = (e) => {
+        e.preventDefault();
+        loginForm.style.display = 'none';
+        forgotPasswordLink.style.display = 'none';
+        recoverForm.style.display = 'block';
+        recoverMessage.style.display = 'none';
+        loginError.style.display = 'none';
+    };
+}
+if (backToLogin) {
+    backToLogin.onclick = (e) => {
+        e.preventDefault();
+        recoverForm.style.display = 'none';
+        loginForm.style.display = 'block';
+        forgotPasswordLink.style.display = 'block';
+        recoverMessage.style.display = 'none';
+        recoverEmail.value = '';
+    };
+}
+if (recoverForm) {
+    recoverForm.onsubmit = (e) => {
+        e.preventDefault();
+        // Simulação de envio de recuperação
+        recoverMessage.textContent = 'Se o e-mail estiver cadastrado, você receberá instruções para redefinir sua senha.';
+        recoverMessage.style.display = 'block';
+        recoverEmail.value = '';
+    };
+}
+
+function mostrarDashboardSeLogado() {
+    const token = localStorage.getItem('token');
+    if (token) {
+        if (loginContainer) loginContainer.style.display = 'none';
+        if (dashboard) {
+            dashboard.style.display = 'block';
+            setTimeout(loadStats, 100); // Garante que o DOM está pronto
+        }
+    } else {
+        if (dashboard) dashboard.style.display = 'none';
+        if (loginContainer) loginContainer.style.display = 'block';
+    }
+}
+
+if (loginForm) {
+    loginForm.onsubmit = async (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        let success = false;
+        let token = null;
+        try {
+            const res = await fetch('http://localhost:3001/api/login', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.json();
+            success = data.success;
+            token = data.token;
+        } catch (err) {
+            // Se o backend não responder, aceita admin/admin localmente
+            if (username === 'admin' && password === 'admin') {
+                success = true;
+                token = btoa(username + ':' + password);
+            }
+        }
+        if (success) {
+            localStorage.setItem('token', token);
+            loginContainer.style.display = 'none';
+            dashboard.style.display = 'block';
+            loadStats();
+        } else {
+            loginError.textContent = 'Usuário ou senha inválidos.';
+            loginError.style.display = 'block';
+        }
+    };
+}
+if (logoutBtn) {
+    logoutBtn.onclick = () => {
+        localStorage.removeItem('token');
+        dashboard.style.display = 'none';
+        loginContainer.style.display = 'block';
+    };
+}
+
+// Exibir dashboard automaticamente se já estiver logado
+window.onload = mostrarDashboardSeLogado;
+
+async function loadStats() {
+    // Dados offline do localStorage
+    let alunos = JSON.parse(localStorage.getItem('alunos') || '[]');
+    let presencas = JSON.parse(localStorage.getItem('presencas') || '[]');
+    let documentos = JSON.parse(localStorage.getItem('documentos') || '[]');
+
+    // Estatísticas
+    document.getElementById('estatisticas').innerHTML = `
+        <div style="display:flex; gap:32px; flex-wrap:wrap; justify-content:center;">
+            <div style="background:#fff; border:2px solid var(--main-purple); border-radius:10px; padding:16px 28px; min-width:170px; text-align:center;">
+                <h3 style="color:var(--main-purple-dark); margin:0;">Alunos</h3>
+                <p style="font-size:2em; margin:10px 0 0 0;">${alunos.length}</p>
+            </div>
+            <div style="background:#fff; border:2px solid var(--main-purple); border-radius:10px; padding:16px 28px; min-width:170px; text-align:center;">
+                <h3 style="color:var(--main-purple-dark); margin:0;">Presenças</h3>
+                <p style="font-size:2em; margin:10px 0 0 0;">${presencas.length}</p>
+            </div>
+            <div style="background:#fff; border:2px solid var(--main-purple); border-radius:10px; padding:16px 28px; min-width:170px; text-align:center;">
+                <h3 style="color:var(--main-purple-dark); margin:0;">Documentos</h3>
+                <p style="font-size:2em; margin:10px 0 0 0;">${documentos.length}</p>
+            </div>
+        </div>
+        <div style="margin:32px auto; max-width:1100px; display:flex; flex-wrap:wrap; gap:32px; justify-content:center; align-items:flex-start;">
+            <div style="flex:1 1 330px; min-width:300px;">
+                <canvas id="graficoDashboard"></canvas>
+            </div>
+            <div style="flex:1 1 330px; min-width:300px;">
+                <canvas id="graficoIdades"></canvas>
+            </div>
+            <div style="flex:1 1 330px; min-width:300px;">
+                <canvas id="graficoFaixas"></canvas>
+            </div>
+        </div>
+    `;
+    // Gráfico de barras: presenças por aluno
+    setTimeout(() => {
+        // Gráfico de barras: Presenças por Aluno
+        let ctx = document.getElementById('graficoDashboard');
+        if (!ctx) return;
+        let nomes = alunos.map(a => a.nome);
+        let presencasPorAluno = alunos.map((a, idx) => presencas.filter(p => Number(p.alunoIndex) === idx).length);
+        if (window.graficoDashboard) window.graficoDashboard.destroy();
+        if (nomes.length === 0) {
+            ctx.parentElement.innerHTML = '<p style="text-align:center;color:#888;margin:30px 0;">Cadastre alunos para ver o gráfico.</p>';
+            return;
+        }
+        window.graficoDashboard = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: nomes,
+                datasets: [{
+                    label: 'Presenças por Aluno',
+                    data: presencasPorAluno,
+                    backgroundColor: 'rgba(160, 132, 202, 0.7)',
+                    borderColor: 'rgba(142, 68, 173, 1)',
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'Presenças por Aluno'
+                    }
+                },
+                scales: {
+                    x: { title: { display: true, text: 'Alunos' } },
+                    y: { beginAtZero: true, title: { display: true, text: 'Presenças' } }
+                }
+            }
+        });
+
+        // Gráfico de pizza: Distribuição por Idade
+        let ctxIdades = document.getElementById('graficoIdades');
+        if (window.graficoIdades) window.graficoIdades.destroy();
+        let idades = alunos.map(a => {
+            if (!a.dataNascimento) return 'Sem data';
+            const hoje = new Date();
+            const nasc = new Date(a.dataNascimento);
+            let idade = hoje.getFullYear() - nasc.getFullYear();
+            const m = hoje.getMonth() - nasc.getMonth();
+            if (m < 0 || (m === 0 && hoje.getDate() < nasc.getDate())) idade--;
+            return idade;
+        });
+        let idadesMap = {};
+        idades.forEach(i => { idadesMap[i] = (idadesMap[i] || 0) + 1; });
+        let idadeLabels = Object.keys(idadesMap);
+        let idadeData = Object.values(idadesMap);
+        let corIdades = idadeLabels.map(() => `hsl(${Math.floor(Math.random()*360)},70%,70%)`);
+        window.graficoIdades = new Chart(ctxIdades, {
+            type: 'pie',
+            data: {
+                labels: idadeLabels,
+                datasets: [{
+                    label: 'Alunos por Idade',
+                    data: idadeData,
+                    backgroundColor: corIdades,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Distribuição por Idade'
+                    }
+                }
+            }
+        });
+
+        // Gráfico de pizza: Distribuição por Faixa Etária
+        let ctxFaixas = document.getElementById('graficoFaixas');
+        if (window.graficoFaixas) window.graficoFaixas.destroy();
+        let faixas = { '0-5': 0, '6-10': 0, '11-14': 0, '15-18': 0, '19+': 0, 'Sem data': 0 };
+        idades.forEach(i => {
+            if (typeof i !== 'number' || isNaN(i)) faixas['Sem data']++;
+            else if (i <= 5) faixas['0-5']++;
+            else if (i <= 10) faixas['6-10']++;
+            else if (i <= 14) faixas['11-14']++;
+            else if (i <= 18) faixas['15-18']++;
+            else faixas['19+']++;
+        });
+        let faixaLabels = Object.keys(faixas);
+        let faixaData = Object.values(faixas);
+        let corFaixas = faixaLabels.map(() => `hsl(${Math.floor(Math.random()*360)},70%,60%)`);
+        window.graficoFaixas = new Chart(ctxFaixas, {
+            type: 'pie',
+            data: {
+                labels: faixaLabels,
+                datasets: [{
+                    label: 'Alunos por Faixa Etária',
+                    data: faixaData,
+                    backgroundColor: corFaixas,
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Distribuição por Faixa Etária'
+                    }
+                }
+            }
+        });
+    }, 200);
+}
+</script>
+</body>
+</html>
+</body>
+</html>

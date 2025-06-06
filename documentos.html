@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Documentos - Novo Amanhã</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <style>
+    body {
+      background: #f4f1fa;
+      margin: 0;
+    }
+    .topbar {
+      background: #6c3fd4;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      height: 56px;
+      padding: 0 1.2rem;
+      gap: 1.2rem;
+      box-shadow: 0 2px 8px #6c3fd41a;
+    }
+    .topbar .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #fff;
+      text-decoration: none;
+    }
+    /* Hamburguer customizado */
+    .topbar .btn {
+      background: transparent;
+      color: #fff;
+      border: none;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      padding: 0.35rem 0.7rem;
+      border-radius: 6px;
+    }
+    /* Força as barras do hamburguer a ficarem brancas */
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    /* Offcanvas lateral */
+    .offcanvas.offcanvas-start {
+      background: #6c3fd4 !important;
+      width: 230px;
+      color: #fff;
+    }
+    .offcanvas .offcanvas-header {
+      border-bottom: 1px solid #8a5bdc4d;
+      background: #6c3fd4;
+    }
+    .offcanvas .nav-link {
+      color: #fff !important;
+      font-weight: 500;
+      font-size: 1.1rem;
+      padding: 0.85rem 2rem 0.85rem 1.5rem;
+      border-radius: 0 50px 50px 0;
+      transition: background .15s, color .15s;
+    }
+    .offcanvas .nav-link.active,
+    .offcanvas .nav-link:hover {
+      background: #fff;
+      color: #6c3fd4 !important;
+    }
+    .offcanvas .logout-link {
+      margin-top: 1.5rem;
+      padding: 0 2rem;
+    }
+    /* Deixa o X de fechar sempre branco */
+    .btn-close {
+      filter: invert(1);
+    }
+    @media (max-width: 575.98px) {
+      .topbar {
+        padding: 0 0.4rem;
+      }
+      .offcanvas.offcanvas-start {
+        width: 100vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Topbar com botão hamburguer -->
+  <header class="topbar">
+    <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuSidebar" aria-controls="menuSidebar" aria-label="Abrir menu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <a class="brand" href="dashboard.html">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none">
+        <circle cx="13" cy="13" r="6" fill="#FFD600"/>
+        <g stroke="#FFD600" stroke-width="2">
+          <line x1="13" y1="2" x2="13" y2="0"/>
+          <line x1="13" y1="26" x2="13" y2="24"/>
+          <line x1="2" y1="13" x2="0" y2="13"/>
+          <line x1="26" y1="13" x2="24" y2="13"/>
+          <line x1="21.213" y1="4.787" x2="22.627" y2="3.373"/>
+          <line x1="4.787" y1="4.787" x2="3.373" y2="3.373"/>
+          <line x1="21.213" y1="21.213" x2="22.627" y2="22.627"/>
+          <line x1="4.787" y1="21.213" x2="3.373" y2="22.627"/>
+        </g>
+      </svg>
+      Novo Amanhã
+    </a>
+  </header>
+
+  <!-- Offcanvas menu lateral -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="menuSidebar" aria-labelledby="menuSidebarLabel">
+    <div class="offcanvas-header">
+      <span class="brand d-flex align-items-center gap-2" style="color:#fff; font-weight:700;">
+        <svg width="20" height="20" viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="6" fill="#FFD600"/>
+          <g stroke="#FFD600" stroke-width="2">
+            <line x1="13" y1="2" x2="13" y2="0"/>
+            <line x1="13" y1="26" x2="13" y2="24"/>
+            <line x1="2" y1="13" x2="0" y2="13"/>
+            <line x1="26" y1="13" x2="24" y2="13"/>
+            <line x1="21.213" y1="4.787" x2="22.627" y2="3.373"/>
+            <line x1="4.787" y1="4.787" x2="3.373" y2="3.373"/>
+            <line x1="21.213" y1="21.213" x2="22.627" y2="22.627"/>
+            <line x1="4.787" y1="21.213" x2="3.373" y2="22.627"/>
+          </g>
+        </svg>
+        Novo Amanhã
+      </span>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+    </div>
+    <div class="offcanvas-body d-flex flex-column px-0">
+      <nav class="flex-grow-1">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="alunos.html">Alunos</a></li>
+          <li class="nav-item"><a class="nav-link" href="presencas.html">Presenças</a></li>
+          <li class="nav-item"><a class="nav-link" href="documentos.html">Documentos</a></li>
+          <li class="nav-item"><a class="nav-link" href="relatorios.html">Relatórios</a></li>
+          <li class="nav-item"><a class="nav-link" href="programacao.html">Programação Semanal</a></li>
+        </ul>
+      </nav>
+      <div class="logout-link">
+        <a class="nav-link" href="index.html">Sair</a>
+      </div>
+    </div>
+  </div>
+  <section class="container my-5" style="max-width:700px;">
+    <h2 class="text-center mb-4">Documentos</h2>
+    <form id="doc-form" class="row g-3 mb-5">
+      <div class="col-md-6">
+        <input type="text" id="doc-nome" class="form-control" placeholder="Nome do documento" required>
+      </div>
+      <div class="col-md-6">
+        <input type="file" id="doc-arquivo" class="form-control" required>
+      </div>
+      <div class="col-12 text-end">
+        <button type="submit" class="btn btn-custom">Adicionar Documento</button>
+      </div>
+    </form>
+    <h3 class="mb-3 text-center" style="color:#6c3fd4;">Documentos Salvos</h3>
+    <ul id="lista-documentos" class="list-group"></ul>
+  </section>
+
+  <script>
+    // Simulação de organização de documentos em memória para testes offline
+    let documentos = JSON.parse(localStorage.getItem('documentos') || '[]');
+
+    function atualizarLista() {
+      const ul = document.getElementById('lista-documentos');
+      ul.innerHTML = '';
+      documentos.forEach((d, i) => {
+        const li = document.createElement('li');
+        li.className = "list-group-item d-flex flex-wrap align-items-center justify-content-between";
+        li.innerHTML = `<span><strong>${d.nome}</strong> - ${d.arquivoNome}</span>
+          <span>
+            ${d.url ? `<a href="${d.url}" download class="btn btn-sm btn-outline-success me-2">Baixar</a>` : ''}
+            <button onclick="removerDoc(${i})" class="btn btn-sm btn-outline-danger">Remover</button>
+          </span>`;
+        ul.appendChild(li);
+      });
+    }
+
+    document.getElementById('doc-form').onsubmit = function(e) {
+      e.preventDefault();
+      const nome = document.getElementById('doc-nome').value;
+      const arquivoInput = document.getElementById('doc-arquivo');
+      const arquivo = arquivoInput.files[0];
+      if (!arquivo) return;
+      const reader = new FileReader();
+      reader.onload = function(ev) {
+        documentos.push({ nome, arquivoNome: arquivo.name, url: ev.target.result });
+        localStorage.setItem('documentos', JSON.stringify(documentos));
+        atualizarLista();
+      };
+      reader.readAsDataURL(arquivo);
+      this.reset();
+    };
+
+    function removerDoc(idx) {
+      documentos.splice(idx, 1);
+      localStorage.setItem('documentos', JSON.stringify(documentos));
+      atualizarLista();
+    }
+
+    window.onload = atualizarLista;
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
